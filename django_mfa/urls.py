@@ -2,6 +2,8 @@ from .views import *
 from django.urls import path, include
 from . import views
 
+
+app_name = 'mfa'
 security_patterns = ([
     path('verify-second-factor-options/',
          verify_second_factor, name='verify_second_factor'),
@@ -18,7 +20,7 @@ security_patterns = ([
     path('recovery/codes/', recovery_codes, name='recovery_codes'),
     path('recovery/codes/downloads/', recovery_codes_download,
          name='recovery_codes_download'),
-], 'mfa')
+])
 
 urlpatterns = [
     path("", include(security_patterns)),
